@@ -1,0 +1,284 @@
+SHOW databases;
+CREATE DATABASE my_database; DROP DATABASE my_database;
+USE my_database;
+CREATE TABLE myTable (id INT, fname VARCHAR(30), lname VARCHAR(30));
+DROP TABLE myTable;
+DESC myTable;
+INSERT INTO myTable VALUES(1, 'Коля', 'Фамин');
+INSERT INTO myTable(id, fname) VALUES (1, 'Петя');
+SELECT * FROM myTable;
+SELECT fname, lname FROM myTable;
+
+____________________________________________________________________
+SELECT name, prise FROM products WHERE rate >= 5 OR marcetName LIKE (%cs_) AND rate IN (2,3) AND marcetName BETWEEN 'perecrestok' 'magnit' AND NOT 'korzinka'
+
+SELECT name, duration FROM movies WHERE (likes > 100 OR dislikes < 100) AND dropPer < 70;
+
+DELETE FROM movies WHERE dislikes > 70;
+
+UPDATE movies SET dislikes = 100 WHERE name = 'NameChanel';
+
+____________________________________________________________________
+
+CREATE TABLE products(id INT AUTO_INCREMENT, name VARCHAR(40), price INT, PRIMARY KEY (id));
+
+ALTER TABLE products ADD COLUMN id INT AUTO_INCREMENT FIRST, ADD PRIMARY KEY(id);
+
+
+____________________________________________________________________
+8
+
+ALTER TABLE(форматирование таблицы)
+
+ALTER TABLE users ADD COLUMN nick VARCHAR(30) AFTER id;
+
+ALTER TABLE users DROP COLUMN nick;
+
+ALTER TABLE users RENAME TO usveri;
+
+ALTER TABLE users CHANGE COLUMN nick username VARCHAR (20);// NOT NULL
+
+ALTER TABLE users MODIFY COLUMN username VARCHAR (30);
+
+ALTER TABLE users ADD COLUMN id INT AUTO_INCREMENT FIRST, ADD PRIMARY KEY(id), CHANGE COLUMN name name_list varchar(20), ADD COLUMN username VARCHAR (30);  
+
+____________________________________________________________________
+9
+
+SELECT UPPER(name) FROM users; (выведет , только выведет значения поля name в верхнем регистре) поле в одном (имя фамилия, будем разбивать)
+
+ALTER TABLE users ADD COLUMN fName VARCHAR(20) NOT NULL, ADD COLUMN lName VARCHAR(20) NOT NULL;
+
+UPDATE users SET fName = SUBSTRING_UNDEX(fNAlNA, ' ', 1) ,(или отдельно) lName = SUBSTRING_UNDEX(fNAlNA, ' ', -1); 
+
+SELECT RIGHT(fNAlNA, 2) FROM USERS (вернёт 2 последних символа из поля fNAlNA)
+
+UPDATE users SET fNAlNA = RIGHT(fNAlNA, 2); Запишет в тоже поле только 2 знака с права
+
+UPDATE users set fNAlNa = UPPER(fNAlNA) WHERE id = 1;
+
+LTRIM/RTRIM
+
+(1 - берёт с лева, '-1'- берёт справа, также и с 2 и 3...)
+
+
+____________________________________________________________
+10 case
+
+UPDATE users SET rank = CASE
+WHEN reputation > 300 THEN 'Просвещённый'
+WHEN reputation > 100 THEN 'Гуру'
+WHEN reputation > 0   THEN 'Пользователь'
+WHEN reputation = 0   THEN 'Зелёный'
+ELSE 'Нуб'
+END;
+
+SELECT fNames, reputation, rank FROM users ORDER BY fNames
+
+SELECT fNames, reputation, rank FROM users ORDER BY fNames DESC; (В обратном порядке)
+
+________________________________________________________________________
+
+11 
+SELECT SUM(reputation) FROM users; (сумма всех репутаций)
+
+SELECT MAX(peputation) FROM users; самая большая репутация
+
+SELECT fNames, lName, nameProduct FROM sales WHERE price = (SELECT MAX(price) FROM SALES);
+ 
+SELECT fNames, lNames, nameProduct, price FROM ORDER BY price(DESC, если нужна обраточка просто через пробел );
+
+SELECT COUNT(price) FROM sales; //колличество не нулевых полей в колоне prise
+
+SELECT AVR(prise) FROM sales;// среднее арефметическое
+
+SELECT fNames, SUM(price) FROM sales GROUP BY fname; // вместо sum можно поставить prise или любую другую функцию
+
+SELECT DISTINCT fName FROM sales;// вывод записей без повторения из поля fname
+
+SELECT fNames, lNames, nameProduct, price FROM sales ORDER BY price DESC LIMIT 1; (по цене от большого до малого и ограничьия только одной записью)
+
+SELECT fNames, lNames, nameProduct, price FROM sales ORDER BY price DESC LIMIT 0,3; (где 0 индекс записи с которой начинать, а 3 это количество записей, которые можно вывести)
+
+________________________________________________________________
+12
+CREATE TABLE users(userId INT AUTO_INCREMENT PRIMARY KEY, fname VARCHAR(25) NOT NULL, LNAME VARCHAR(25),
+email VARCHAR(25)); ALER TABLE users ADD COLUMN income INT DEFAULT 0;
+
+INSERRT INTO users VALUES(NULL, 'Пё''тр') (любо экранируем как 'Пё\'тр')
+
+SELECT fname AS имена FROM users; просто выведет таблиуц которую он назовёт ,имена, хотя она будет по настоящему называться name
+________________________________________________________________
+13 
+create table contacts(user_id int auto_increment primary key, name varchar(25) not null); 
+
+mysql> INSERT INTO contacts VALUES (NULL, 'Zhora');
+Query OK, 1 row affected (0,01 sec)
+
+mysql> INSERT INTO contacts VALUES (NULL, 'Kolya');
+Query OK, 1 row affected (0,00 sec)
+
+mysql> INSERT INTO contacts VALUES (NULL, 'Igor');
+Query OK, 1 row affected (0,00 sec)
+
+mysql> select name Имя from contacts;
++--------+
+| Имя    |
++--------+
+| Zhora  |
+| Kolya  |
+| Igor   |
++--------+
+3 rows in set (0,00 sec)
+
+mysql> INSERT INTO contacts VALUES (NULL, 'Petr');
+Query OK, 1 row affected (0,01 sec)
+
+
+
+CREATE TABLE activites(
+    -> act_id INT AUTO_INCREMENT PRIMARY KEY,
+    -> activity VARCHAR(20) NOT NULL,
+    -> user_id INT,
+    -> FOREIGN KEY (user_id) REFERENCES contacts (user_id));
+
+alter table activites
+    -> rename to activities;
+
+INSERT INTO activities VALUES (NULL, 'SQL', (SELECT user_id FROM contacts WHERE name = 'Petr'));
+
+************************
+один к одному
+CREATE TABLE locations(person_lication_id INT NOT NULL PRIMARY KEY, name VARCHAR(20),
+FOREIGN KEY (person_location_id) REFERENCES persons (person_id)); (ключ одновремменно внешний и внутренний-- связь один mysql> INSERT INTO contacts VALUES (NULL, 'Zhora');
+Query OK, 1 row affected (0,01 sec)
+
+mysql> INSERT INTO contacts VALUES (NULL, 'Kolya');
+Query OK, 1 row affected (0,00 sec)
+
+mysql> INSERT INTO contacts VALUES (NULL, 'Igor');
+Query OK, 1 row affected (0,00 sec)
+
+mysql> select name Имя from contacts;
++--------+
+| Имя    |
++--------+
+| Zhora  |
+| Kolya  |
+| Igor   |
++--------+
+3 rows in set (0,00 sec)
+
+mysql> INSERT INTO contacts VALUES (NULL, 'Petr');
+Query OK, 1 row affected (0,01 sec)
+к однму, не позволит создать больше связей)
+*******************************************
+один ко многим
+CREATE TABLE users(user_id INT PRIMARY KEY AUTO_INCREMENT, user_name VARCHAR(20) NOT NULL, profession_id INT);
+
+INSERT INTO users VALUES(NULL, 'Petr', NULL);
+
+CREATE TABLE professions(profession_id INT PRIMARY KEY AUTO_INCREMENT, profession_name VARCHAR(20) NOT NULL);
+
+INSERT INTO professions VALUES(NULL, 'Malar'); и так далее
+
+ALTER TABLE users ADD FOREIGN KEY (profession_id) REFERENCES professions(profession_id);
+
+UPDATE users SET profession_id = 1 WHERE user_name IN ('Женя','Коля');
+
+***********************************************
+многое ко многим
+
+создаём 2таблицы с первичным ключом,
+а в таблицу 3 мы создаём 2 поля с первычными ключами первых таблиц
+CREATE TABLE student_classes(student_id INT NOT NULL, class_id INT NOT NULL, PRIMARY KEY(student_id, class,id), FOREIGN KEY (student_id) REFERENCES students (student_id),
+FOREIGN KEY (class_id) REFERENCES classes(class_id); 
+_____________________________________________________
+14 соединения 
+
+CREATA DATABASE books_db;
+USE books_db;
+CREATE TABLE publishers(publisher_id AUTO_INCREMENT PRIMARY KEY, publisher_name VARCHAR(30) NOT NULL);
+INSERT INTO publishers VALUES (NULL 'Все кники');
+INSERT INTO publishers VALUES (NULL 'Прокачай мозги');
+INSERT INTO publishers VALUES (NULL 'Мир фантазии');
+
+CREATE TABLE books(book_id INT AUTO_INCREMENT PRIMARY KEY, book_name varchar(30) NOT NULL, publisher_id INT, FOREIGN KEY(publisher_id) REFERENCES publichers (publisher_id));
+
+INSERT INTO books VALUES(NULL, 'Магия и кровь', 3);
+
+INSERT INTO books VALUES(NULL, 'Уникальная вселенная', NULL);
+
+INSERT INTO books VALUES(NULL, 'Физика просто', 2);
+
+INSERT INTO books VALUES(NULL, 'Рассказ о цветах', 1);
+
+SELECT * FROM books;
+SELECT * FROM PUBLISHERS;
+
+**ПЕРЕКРЕСТНОЕ СОЕДИНЕНИЕ**
+
+SELECT b.book_name, p.publisher_name FROM books b CROSS JOIN publishers p;
+выбрать из таблицы books(b) поле books_name, из таблицы публикации(p) поле publosher_name из кник как b отобразить перекрёстно с публикациями как p
+
+**Натуральное соединение**
+SELECT b.book_name, p.publisher_name FROM books b NATURAL JOIN publishers p;
+
+**Внутреннее соединение**
+
+SELECT b.book_name, p.publisher_name FROM books b INNER JOIN publishers p
+ON b.publisher_id = p.publisher_id; вывести в соответствии имя книги и имя редакции где id совпадают
+
+**Внешние соединения**
+
+SELECT books.books_name, publishers.publisher_name FROM books LEFT JOIN publishers USING (publisher_id); сопоставь всё пополю publisher_id (выведет Null, ессли у книги нет издательства, но если поставить RIGHT то он не покажет одну книгу, так как ей не сопоставлено издательство)
+
+SELECT books.books_name, publishers.publisher_name FROM books LEFT JOIN publishers ON books.publishe_id = publishers.publishers_id WHERE books.publisher_id is NULL;
+
+______________________________________________________________________________
+15 подзапросы
+
+**звязями вывести информацию из 3 или 4 странииц**
+
+CREATE TABLE reviews (review_id INT PRIMARY KEY, review_rank INT, review_comment VARCHAR NOT NULL DEFAULT 'No comments', FOREIGN KEY (review_id) REFERENCES books (book_id));
+
+INSERT INTO reviews VALUES ((SELECT book_id FROM books WHERE book_name = 'Магия и кровь'), 8, 'Хороший и интерессный сюжет');
+
+INSERT INTO reviews VALUES ((SELECT book_id FROM books WHERE book_name = 'Уникальная вселенная'), 9, 'Замечательная книга');
+
+INSERT INTO reviews VALUES ((SELECT book_id FROM books WHERE book_name = 'Физика просто'), 2, 'Очень сложно(((');
+
+INSERT INTO reviews VALUES ((SELECT book_id FROM books WHERE book_name = 'Рассказ о цветах'), 8, 'Сопли, слюни');
+
+SELECT b.book_name Книга, review_rank Оценка, b.price Цена, p.publosher_name Издатель FROM books b NATURAL JOIN publishers p INNER JOIN reviews r ON b.book_id = r.review_id;
+
+SELECT b.book_name Книга, review_rank Оценка, b.price Цена, p.publosher_name Издатель FROM books b NATURAL JOIN publishers p INNER JOIN reviews r ON b.book_id = r.review_id WHERE r.review_rank IN (SELECT r.review_rank FROM reviews);
+
+SELECT b.book_name Книга, review_rank Оценка, b.price Цена, p.publosher_name Издатель FROM books b NATURAL JOIN publishers p INNER JOIN reviews r ON b.book_id = r.review_id WHERE r.review_rank IN (5, 3, 8);
+__________________________________________________________________________
+17 Представления
+
+CREATE DATABASE people_db;
+USE people_db;
+CREATE TABLE users (id INT PRIMARY KEY AUTO_INCREMENT,  fname VARCHAR(20) NOT NULL, lname VARCHAR(30), email VARCHAR(30) NOT NULL UNIQUE);
+
+INSERT INTO users VALUES (NULL, 'Petr', 'Redko', 'test@mail.com');
+
+INSERT INTO users VALUES (NULL, 'Roman', 'Popov', 'ro@po.com');
+
+INSERT INTO users VALUES (NULL, 'Evgen', 'Olive', 'test@mail.com');
+
+CREATE TABLE private_inf(id INT PRIMARI KEY, income INT NOT NULL DEFAULT 0, FOREIGN KEY(id) REFERENCES users (id));
+
+INSERT INTO privat_inf VALUES(2, 20000);
+INSERT INTO privat_inf VALUES(2, 19000);
+INSERT INTO privat_inf VALUES(2, 100);
+
+SELECT u.fname u.lname p.income FROM users u INNER JOIN private_inf p ON u.id = p.id WHERE p.income > (SELECT AVG(income) FROM private_inf);
+
+****
+CREATE VIEV maxIncome AS SELECT u.fname u.lname p.income FROM users u INNER JOIN private_inf p ON u.id = p.id WHERE p.income > (SELECT AVG(income) FROM private_inf);
+
+SELECT * FROM maxIncome;
+
+//DROP VIEV maxIncome;

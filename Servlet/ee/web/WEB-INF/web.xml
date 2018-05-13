@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
+         version="3.1">
+
+
+
+
+
+
+<!--******************************8Основы web XML*********************************-->
+    <servlet>
+        <servlet-name>Hello</servlet-name>
+        <servlet-class>HelloServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Hello</servlet-name>
+        <url-pattern>/hello</url-pattern>
+    </servlet-mapping>
+
+
+    <!--<welcome-file-list>-->
+        <!--<welcome-file>index.jsp</welcome-file>  Дефолтные адреса для отображения-->
+        <!--<welcome-file>index.xml</welcome-file>-->
+    <!--</welcome-file-list>-->
+
+
+    <!--<session-config> указываем время сессии минуты или секунды?-->
+        <!--<session-timeout>180</session-timeout>-->
+    <!--</session-config>-->
+
+
+    <!--<icon>-->
+        <!--<small-icon>/img/icon1.gif</small-icon> путь в папке web но это не фавикон-->
+        <!--<large-icon>/img/icon1.png</large-icon>-->
+    <!--</icon>-->
+
+
+    <!--<description>-->
+        <!--Эй, это нашь дискрипшон-->
+    <!--</description>-->
+
+
+    <!--<mime-mapping> -->
+        <!--<extension>foo</extension>-->
+        <!--<mime-type>application/x-fudar</mime-type>-->
+    <!--</mime-mapping>-->
+
+
+    <!--<locale-encoding-mapping-list>-->
+        <!--<locale-encoding-mapping>-->
+            <!--<locale>ru</locale>-->
+            <!--<encoding>windows-1255</encoding>-->
+        <!--</locale-encoding-mapping>-->
+    <!--</locale-encoding-mapping-list>-->
+
+
+    <!--<distributable />  Для кластерного приложения-->
+
+</web-app>

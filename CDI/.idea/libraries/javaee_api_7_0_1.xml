@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="javaee-api-7.0-1">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/apache-tomee-plume-7.0.4/lib/javaee-api-7.0-1.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

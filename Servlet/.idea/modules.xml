@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/Servlet.iml" filepath="$PROJECT_DIR$/Servlet.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ee/ee.iml" filepath="$PROJECT_DIR$/ee/ee.iml" />
+      <module fileurl="file://$PROJECT_DIR$/webXmlEE/webXmlEE.iml" filepath="$PROJECT_DIR$/webXmlEE/webXmlEE.iml" />
+    </modules>
+  </component>
+</project>

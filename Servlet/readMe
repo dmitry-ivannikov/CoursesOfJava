@@ -1,0 +1,5 @@
+javac -cp .:/home/dimas/apache-tomcat-8.5.28/lib/servlet-api.jar HelloServlet.ja
+va
+из папки приложения
+
+jar -cfv mywar.war *
