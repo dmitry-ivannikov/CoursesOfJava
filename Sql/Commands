@@ -1,3 +1,5 @@
+mysql -u root -p(123qwe)
+
 SHOW databases;
 CREATE DATABASE my_database; DROP DATABASE my_database;
 USE my_database;
