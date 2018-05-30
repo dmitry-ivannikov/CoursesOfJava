@@ -8,6 +8,16 @@ public class User2 implements Serializable{
     private String firstname;
     private String lastname;
 
+    private Role3 role3;
+
+    public Role3 getRole3() {
+        return role3;
+    }
+
+    public void setRole3(Role3 role3) {
+        this.role3 = role3;
+    }
+
 
     public User2(){
 

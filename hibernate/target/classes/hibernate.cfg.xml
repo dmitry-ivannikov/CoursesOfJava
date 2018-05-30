@@ -10,6 +10,8 @@
         <property name="swow_sql">true</property>
         <property name="hbm2ddl.auto">create</property>
 
+        <mapping resource="role.cfg.xml"/>
         <mapping resource="user2.cfg.xml"/>
+
     </session-factory>
 </hibernate-configuration>
