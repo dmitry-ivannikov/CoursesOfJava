@@ -1,14 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
-    <class name="Conf1.Role3" table="role">
+    <class name="ManyToOne.RoleManyOne" table="roleManyOne">
         <id name="id" column="id" type="int">
             <generator class="native" />
             <!--первичные ключи для таблицы-->
-        </id><one-to-one name="user2" class="Conf1.User2" />
+        </id>
         <property name="title" column="title" type="string" />
-
-
+        <set name="userManyOnes" table="userManyOne">
+            <key>
+                <column name="role_id" not-null="true"/>
+            </key>
+            <one-to-many class="ManyToOne.UserManyOne"/>
+        </set>
         <!--manyTomany-->
         <!--<set name="user2s" table="user">-->
             <!--<key>-->
@@ -16,9 +20,6 @@
             <!--</key>-->
             <!--<one-to-many class="Conf1.User2"></one-to-many>-->
         <!--</set>-->
-
-
-
         <!--oneToOne-->
 
 
