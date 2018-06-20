@@ -9,7 +9,12 @@
         <property name="dialect">org.hibernate.dialect.MySQLDialect</property>
         <property name="swow_sql">true</property>
         <property name="hbm2ddl.auto">create </property>
-        <mapping resource="role.cfg.xml"/>
-        <mapping resource="user.cfg.xml"/>
+
+        <!--<mapping resource="role.cfg.xml"/>-->
+        <!--<mapping resource="user.cfg.xml"/>-->
+
+        <mapping class="JPA.Role"/>
+        <mapping class="JPA.User"/>
+
     </session-factory>
 </hibernate-configuration>

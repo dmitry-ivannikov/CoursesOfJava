@@ -15,20 +15,25 @@
         <!--</set>-->
     <!--</class>-->
 
-    <!--<class name="OneToOne.RoleOneToOne" table="roleOneToOne">-->
+
+
+    <!--<class name="Onetoone2.Role" table="role">-->
         <!--<id name="id" column="id" type="int">-->
             <!--<generator class="native" />-->
         <!--</id>-->
         <!--<property name="title" column="title" type="string" />-->
-        <!--<one-to-one name="userOneToOne" class="OneToOne.UserOneToOne"/>-->
+        <!--<one-to-one name="user" class="Onetoone2.User"/>-->
     <!--</class>-->
 
-    <class name="Onetoone2.Role" table="role">
+    <class name="ManyToMany.Role" table="role">
         <id name="id" column="id" type="int">
             <generator class="native" />
         </id>
         <property name="title" column="title" type="string" />
-        <one-to-one name="user" class="Onetoone2.User"/>
+        <set name="users" table="user_role">
+            <key column="role_id"/>
+            <many-to-many column="user_id" class="ManyToMany.User"/>
+        </set>
     </class>
 
 </hibernate-mapping>

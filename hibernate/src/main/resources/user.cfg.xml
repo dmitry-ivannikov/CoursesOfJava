@@ -24,14 +24,27 @@
         <!--</many-to-one>-->
     <!--</class>-->
 
-    <class name="Onetoone2.User" table="user">
+    <!--<class name="Onetoone2.User" table="user">-->
+        <!--<id name="id" column="id">-->
+            <!--<generator class="native"/>-->
+        <!--</id>-->
+        <!--<property name="firstname" column="first_Name" type="string"/>-->
+        <!--<property name="lastname" column="last_name" type="string"/>-->
+        <!--<property name="age" column="age" type="int"/>-->
+        <!--<one-to-one name="role" class="Onetoone2.Role"/>-->
+    <!--</class>-->
+
+    <class name="ManyToMany.User" table="user">
         <id name="id" column="id">
             <generator class="native"/>
         </id>
         <property name="firstname" column="first_Name" type="string"/>
         <property name="lastname" column="last_name" type="string"/>
         <property name="age" column="age" type="int"/>
-        <one-to-one name="role" class="Onetoone2.Role"/>
+        <set name="roles" table="user_role">
+            <key column="role_id"/>
+            <many-to-many column="user_id" class="ManyToMany.User"/>
+        </set>
     </class>
 
 </hibernate-mapping>
