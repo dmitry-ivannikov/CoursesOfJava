@@ -13,8 +13,12 @@
         <!--<mapping resource="role.cfg.xml"/>-->
         <!--<mapping resource="user.cfg.xml"/>-->
 
-        <mapping class="JPA.Role"/>
-        <mapping class="JPA.User"/>
+        <!--<mapping class="JPA.Role"/>-->
+        <!--<mapping class="JPA.User"/>-->
+
+        <mapping class="JPAManyToOne.Role"/>
+        <mapping class="JPAManyToOne.User"/>
+
 
     </session-factory>
 </hibernate-configuration>
