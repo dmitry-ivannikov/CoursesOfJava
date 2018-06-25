@@ -22,9 +22,14 @@
         <!--<mapping class="JPAOneToOne.Role"/>-->
         <!--<mapping class="JPAOneToOne.User"/>-->
 
-        <mapping class="JPAManyToMany.Role"/>
-        <mapping class="JPAManyToMany.User"/>
+        <!--<mapping class="JPAManyToMany.Role"/>-->
+        <!--<mapping class="JPAManyToMany.User"/>-->
 
+        <mapping class="Models.Role"/>
+        <mapping class="Models.User"/>
+        <mapping class="Models.Order"/>
+        <mapping class="Models.Product"/>
+        <mapping class="Models.ProductCategory"/>
 
     </session-factory>
 </hibernate-configuration>
