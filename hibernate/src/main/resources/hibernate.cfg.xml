@@ -16,8 +16,11 @@
         <!--<mapping class="JPA.Role"/>-->
         <!--<mapping class="JPA.User"/>-->
 
-        <mapping class="JPAManyToOne.Role"/>
-        <mapping class="JPAManyToOne.User"/>
+        <!--<mapping class="JPAManyToOne.Role"/>-->
+        <!--<mapping class="JPAManyToOne.User"/>-->
+
+        <mapping class="JPAOneToOne.Role"/>
+        <mapping class="JPAOneToOne.User"/>
 
 
     </session-factory>
