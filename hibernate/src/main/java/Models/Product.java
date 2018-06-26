@@ -60,4 +60,9 @@ public class Product extends Model {
     public void setPrice(BigDecimal price) {
         this.price = price;
     }
+
+    @Override
+    public String toString() {
+        return super.getId() + " - " + title + " - " + description + " - ";
+    }
 }
