@@ -15,7 +15,7 @@ public class MainHql {
 
         try {
             session.beginTransaction();
-            
+
 
             //Query query = session.createQuery("FROM Product as p INNER JOIN FETCH p.productCategory as pc");
             //query.setParameter("id", 1L);
