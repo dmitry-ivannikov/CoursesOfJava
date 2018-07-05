@@ -18,10 +18,25 @@ public class Main {
         public static void main(String[] args) {
             SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
             Session session = sessionFactory.openSession();
- //          List<Object> products = null;
-           List<Object []> products = null;
+
+            //sql
+             List<Object []> products = null;
+
+            // hql
+           // List<Product> products = null;
+
+
+
+
+
+
+
+
+
             try {
                 session.beginTransaction();
+
+
 
                 SQLQuery queryUpdate = session.createSQLQuery("UPDATE product SET title = :? WHERE id = :?");
                 queryUpdate.setParameter(0, "asdasd");
