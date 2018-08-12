@@ -1,3 +1,4 @@
+<#include  "security.ftl">
 <#macro login path isRegisterForm>
 <form action="${path}" method="post">
     <div class="form-group row">
@@ -28,7 +29,7 @@
     </div>
     <#if isRegisterForm>
         <div class="form-group row">
-            <label class="col-sm-2 col-form-label">Password:</label>
+            <label class="col-sm-2 col-form-label">Password2:</label>
             <div class="col-sm-6">
                 <input type="password" name="password2"
                        class="form-control ${(password2Error??)?string('is-invalid', '')}"
@@ -71,6 +72,6 @@
 <#macro logout>
 <form action="/logout" method="post">
     <input type="hidden" name="_csrf" value="${_csrf.token}" />
-    <button class="btn btn-primary" type="submit">Sign Out</button>
+    <button class="btn btn-primary" type="submit"><#if user??>Sign Out<#else>Log in</#if></button>
 </form>
 </#macro>
