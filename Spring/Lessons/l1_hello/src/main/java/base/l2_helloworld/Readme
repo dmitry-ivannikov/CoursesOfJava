@@ -1,0 +1,36 @@
+
+2 - helloWorld
+Conf
+@Configuration
+@ComponentScan
+Сканирование всего проекта и поиска зависимостей и конфигураций spring
+
+@Component - говорим что это бин
+
+
+Start configuration spring
+/home/dimas/IdeaProjects/CoursesOfJava/Spring/Lessons/l1_hello - Модуль с maven файлом
+clean package exec:java -Dexec.mainClass=base.l2_helloworld.L2_HelloWorld - путь до Main класса spring
+
+3 - ApplicationContext
+ClassPathXmlApplicationContext("config.xml") - конфигурация через xml
+ClassPathXml(Web)ApplicationContext("classpath*(полезет по папкам : meta-inf, web-config и будет искать )/config.xml") - конфигурация через xml
+AnnotationConfig(Web)ApplicationContext - для веба
+GenericXmlApplicationContext - позволяет подгружать модули и т д
+
+4 - bean creation
+
+5 - Autowiring - связь бинов вложенных и неочень
+
+6 - сканирование пакетов
+в классе config @ComponentScan("com.dmitry") - Указываем пакет, можно через запятую
+@ComponentScan(basePackages = "com.dmitry")//6 - говорим, что этот пакет является базовым
+
+Но что есть basePackages?????????????????????????????????????????????77
+
+7 - Типы autowire
+   1. поле
+   2. класс
+   3. set
+
+Но что лучше???????????????????????????????  https://habr.com/post/334636/
