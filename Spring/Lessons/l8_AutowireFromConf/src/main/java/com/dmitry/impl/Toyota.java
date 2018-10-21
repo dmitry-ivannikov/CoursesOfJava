@@ -5,28 +5,18 @@ import com.dmitry.interfaces.Radio;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-@Component
+//@Component
 public class Toyota implements Car {
 
+ //   @Autowired
     Radio radio;
-/*
-//    by field
-    @Autowired
-    public Toyota(){}
-*/
-
-/*//by constuctor
 
     public Toyota(){}
 
-    @Autowired
     public Toyota(Radio radio) {
         this.radio = radio;
-    }*/
+    }
 
-//by set
-
-    @Autowired
     public void setRadio(Radio radio) {
         this.radio = radio;
     }

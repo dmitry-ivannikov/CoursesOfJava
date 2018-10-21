@@ -34,3 +34,32 @@ GenericXmlApplicationContext - позволяет подгружать моду�
    3. set
 
 Но что лучше???????????????????????????????  https://habr.com/post/334636/
+
+8- autowire через conf файл (если нет доступа к классу)
+
+просто в бин в качестве параметра передаём новый экзепляр класса, либо вызываем get
+
+9 - autowire from xml xmlns:c (c:radio-ref="BeanId")
+or constuctor-arg
+or <bean> <property name="baenName" ref = "beanName"> </bean>
+or autowire from xml xmlns:p (p:radio-ref="BeanNmae")
+
+10 - autowire примитивных типов 
+
+Через xml:
+<bean class="com.dmitry.impl.Toyota">
+        <constructor-arg ref="AA"/>
+        <property name="ownerName" value="D.I."/>
+    </bean>
+    <bean id = "AA" class="com.dmitry.impl.BestFm"/>
+
+configuration on
+componentScan Of  
+
+Or
+configuration of
+componentScan on
+and in class toyota @autowired Radio & @Value ownerName
+
+Or set from setter
+
