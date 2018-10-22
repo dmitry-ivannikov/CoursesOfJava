@@ -2,19 +2,18 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>l11_CollectionAutowiring</artifactId>
+        <groupId>l11_CollectionAutowiring</groupId>
+        <version>1.0-SNAPSHOT</version>
+        <relativePath>../l11_CollectionAutowiring/pom.xml</relativePath>
+    </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>l4_beanCreation</groupId>
-    <artifactId>l4_beanCreation</artifactId>
+    <artifactId>l12_ImportConfig</artifactId>
     <packaging>pom</packaging>
-    <version>1.0-SNAPSHOT</version>
     <modules>
-        <module>l4_beanCreatin</module>
-        <module>l5_autowiring</module>
-        <module>l7_tipeOfAutowire</module>
-
-        <module>l12_ImportConfig</module>
-        <module>l13_Profiles</module>
+        <module>../l13_Profiles</module>
     </modules>
 
 

@@ -3,10 +3,17 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-
+<import resource="config2.xml"/>
     <bean class="com.Toyota">
         <constructor-arg ref="AA"/>
-        <property name="ownerName" value="D.I."/>
+        <constructor-arg>
+            <list>
+                <value>Valie1</value>
+                <value>Valie2</value>
+                <value>Valie3</value>
+                <value>Valie4</value>
+            </list>
+        </constructor-arg>
     </bean>
-    <bean id = "AA" class="com.BestFm"/>
+
 </beans>

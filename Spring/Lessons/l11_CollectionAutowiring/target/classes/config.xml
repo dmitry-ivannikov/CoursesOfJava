@@ -4,9 +4,16 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
 
-    <bean class="com.Toyota">
+    <bean class="com.dmitry.impl.Toyota">
         <constructor-arg ref="AA"/>
-        <property name="ownerName" value="D.I."/>
+        <constructor-arg>
+            <list>
+                <value>Valie1</value>
+                <value>Valie2</value>
+                <value>Valie3</value>
+                <value>Valie4</value>
+            </list>
+        </constructor-arg>
     </bean>
-    <bean id = "AA" class="com.BestFm"/>
+    <bean id = "AA" class="com.dmitry.impl.BestFm"/>
 </beans>

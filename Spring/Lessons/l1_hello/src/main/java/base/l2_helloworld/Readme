@@ -47,11 +47,11 @@ or autowire from xml xmlns:p (p:radio-ref="BeanNmae")
 10 - autowire примитивных типов 
 
 Через xml:
-<bean class="com.dmitry.impl.Toyota">
+<bean class="com.Toyota">
         <constructor-arg ref="AA"/>
         <property name="ownerName" value="D.I."/>
     </bean>
-    <bean id = "AA" class="com.dmitry.impl.BestFm"/>
+    <bean id = "AA" class="com.BestFm"/>
 
 configuration on
 componentScan Of  

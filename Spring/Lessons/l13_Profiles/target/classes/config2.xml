@@ -2,11 +2,11 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <beans profile="default">
+    <bean id = "AA" class="com.dmitry.impl.BestFm"/>
+    </beans>
 
-
-    <bean class="com.Toyota">
-        <constructor-arg ref="AA"/>
-        <property name="ownerName" value="D.I."/>
-    </bean>
-    <bean id = "AA" class="com.BestFm"/>
+    <beans profile="dev">
+        <bean id="AA" class="com.dmitry.impl.WorstFm"/>
+    </beans>
 </beans>
