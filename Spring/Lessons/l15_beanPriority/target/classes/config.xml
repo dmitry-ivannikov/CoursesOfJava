@@ -4,7 +4,7 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
 <import resource="config2.xml"/>
-    <bean class="com.Toyota">
+    <bean class="com.dmitry.impl.Toyota">
         <constructor-arg ref="AA"/>
         <constructor-arg>
             <list>
