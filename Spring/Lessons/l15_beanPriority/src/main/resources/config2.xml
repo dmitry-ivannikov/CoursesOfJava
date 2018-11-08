@@ -3,10 +3,10 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
     <beans profile="default">
-    <bean id = "AA" class="com.dmitry.impl.BestFm"/>
+    <bean id = "AA" class="com.BestFm"/>
     </beans>
 
     <beans profile="dev">
-        <bean id="AA" class="com.dmitry.impl.WorstFm"/>
+        <bean id="AA" class="com.WorstFm"/>
     </beans>
 </beans>

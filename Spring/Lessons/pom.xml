@@ -15,6 +15,7 @@
 
         <module>l12_ImportConfig</module>
         <module>l13_Profiles</module>
+        <module>l16_BeanScope</module>
     </modules>
 
 

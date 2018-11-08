@@ -3,19 +3,25 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
-        <artifactId>l14_Condition</artifactId>
+        <artifactId>l15_beanPriority</artifactId>
         <groupId>l11_CollectionAutowiring</groupId>
         <version>1.0-SNAPSHOT</version>
-        <relativePath>../l14_Condition/pom.xml</relativePath>
+        <relativePath>../l15_beanPriority/pom.xml</relativePath>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>l15_beanPriority</artifactId>
+    <artifactId>l17_PropertiesAndEnvironment</artifactId>
     <packaging>pom</packaging>
     <modules>
-        <module>../l16_BeanScope</module>
-        <module>../l17_PropertiesAndEnvironment</module>
+        <module>../l18_CyclicDependencies</module>
     </modules>
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context</artifactId>
+            <version>5.0.7.RELEASE</version>
+        </dependency>
+    </dependencies>
 
 
 </project>

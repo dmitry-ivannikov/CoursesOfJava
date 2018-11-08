@@ -1,0 +1,156 @@
+
+2 - helloWorld
+Conf
+@Configuration
+@ComponentScan
+Сканирование всего проекта и поиска зависимостей и конфигураций spring
+
+@Component - говорим что это бин
+
+
+Start configuration spring
+/home/dimas/IdeaProjects/CoursesOfJava/Spring/Lessons/l1_hello - Модуль с maven файлом
+clean package exec:java -Dexec.mainClass=base.l2_helloworld.L2_HelloWorld - путь до Main класса spring
+_____________________________________________________________________
+
+3 - ApplicationContext
+ClassPathXmlApplicationContext("config.xml") - конфигурация через xml
+ClassPathXml(Web)ApplicationContext("classpath*(полезет по папкам : meta-inf, web-config и будет искать )/config.xml") - конфигурация через xml
+AnnotationConfig(Web)ApplicationContext - для веба
+GenericXmlApplicationContext - позволяет подгружать модули и т д
+_____________________________________________________________________
+
+4 - bean creation
+
+_____________________________________________________________________
+5 - Autowiring - связь бинов вложенных и неочень
+_____________________________________________________________________
+6 - сканирование пакетов
+в классе config @ComponentScan("com.dmitry") - Указываем пакет, можно через запятую
+@ComponentScan(basePackages = "com.dmitry")//6 - говорим, что этот пакет является базовым
+
+Но что есть basePackages?????????????????????????????????????????????77
+_____________________________________________________________________
+7 - Типы autowire
+   1. поле
+   2. класс
+   3. set
+
+Но что лучше???????????????????????????????  https://habr.com/post/334636/
+_____________________________________________________________________
+8- autowire через conf файл (если нет доступа к классу)
+
+просто в бин в качестве параметра передаём новый экзепляр класса, либо вызываем get
+_____________________________________________________________________
+9 - autowire from xml xmlns:c (c:radio-ref="BeanId")
+or constuctor-arg
+or <bean> <property name="baenName" ref = "beanName"> </bean>
+or autowire from xml xmlns:p (p:radio-ref="BeanNmae")
+_____________________________________________________________________
+10 - autowire примитивных типов 
+
+Через xml:
+<bean class="com.Toyota">
+        <constructor-arg ref="AA"/>
+        <property name="ownerName" value="D.I."/>
+    </bean>
+    <bean id = "AA" class="com.BestFm"/>
+
+configuration on
+componentScan Of  
+
+Or
+configuration of
+componentScan on
+and in class toyota @autowired Radio & @Value ownerName
+
+Or set from setter
+_____________________________________________________________________
+11 autowiring контейнеров
+
+Через xml
+    <bean class="com.Toyota">
+        <constructor-arg ref="AA"/>
+        <constructor-arg>
+            <list>
+                <value>Valie1</value>
+                <value>Valie2</value>
+                <value>Valie3</value>
+                <value>Valie4</value>
+            </list>
+        </constructor-arg>
+    </bean>
+
+Через conf 
+
+    @Bean
+    public Car getToyota(Radio radio) {
+
+        return new Toyota(new ArrayList<String>(), radio);
+    }
+_____________________________________________________________________
+
+12 import config
+
+@Import(Config2.class) подтянет используемые бины 
+public Conf{...}
+
+в файле config можно указать бин черес xml : @ImportResource("classpath:config2.xml")
+
+если связываем чисто через xml, то <import resource="config2.xml"/>
+_____________________________________________________________________
+13 Profiles
+
+ublic class Config2 {
+    @Bean
+    @Profile("default")
+    public Radio getRadio(){
+        return new BestFm();
+    }
+
+    @Bean
+    @Profile("dev")
+    public Radio getWorstFm(){
+        return new WorstFm();
+    }
+
+    <beans profile="default">
+    <bean id = "AA" class="com.BestFm"/>
+    </beans>
+
+    <beans profile="dev">
+        <bean id="AA" class="com.WorstFm"/>
+    </beans>
+
+_____________________________________________________________________
+14 - Condition - matches - выполнение бина по условию
+
+public class MyCondition implements org.springframework.context.annotation.Condition {
+    public boolean matches(ConditionContext conditionContext, AnnotatedTypeMetadata annotatedTypeMetadata) {
+        return conditionContext.getEnvironment().getActiveProfiles().length > 0;
+    }
+}
+...
+@Bean
+@Conditional(MyCondition.class)
+_____________________________________________________________________
+15 - bean priority
+@Primary
+or
+@MyRadio
+
+where
+
+@Retention(RetentionPolicy.RUNTIME)
+@Qualifier
+public @interface MyRadio {
+}
+_____________________________________________________________________
+16 - BeanScope
+
+@Scope(value = ConfigurableBeanFactory.SCOPE_PROTOTYPE)
+
+_____________________________________________________________________
+18 - CyclicDependencies
+
+если попарно конфигуритовать через конструкторы 2 класса - будет ошибна, но ели за автоварить через поле, то всё ок

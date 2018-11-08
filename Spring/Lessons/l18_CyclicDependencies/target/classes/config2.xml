@@ -2,10 +2,11 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <beans profile="default">
+    <bean id = "AA" class="com.dmitry.impl.BestFm" scope="prototype"/>
+    </beans>
 
-
-    <bean class="com.Toyota">
-        <property name="radio" ref="AA"/>
-    </bean>
-    <bean id = "AA" class="com.BestFm"/>
+    <beans profile="dev">
+        <bean id="AA" class="com.dmitry.impl.WorstFm" scope="prototype"/>
+    </beans>
 </beans>
