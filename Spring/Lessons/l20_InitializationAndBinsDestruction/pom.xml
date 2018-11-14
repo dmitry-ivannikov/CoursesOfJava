@@ -3,17 +3,17 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
-        <artifactId>l18_CyclicDependencies</artifactId>
+        <artifactId>l19_MethodLookup</artifactId>
         <groupId>l11_CollectionAutowiring</groupId>
         <version>1.0-SNAPSHOT</version>
-        <relativePath>../l18_CyclicDependencies/pom.xml</relativePath>
+        <relativePath>../l19_MethodLookup/pom.xml</relativePath>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>l19_MethodLookup</artifactId>
+    <artifactId>l20_InitializationAndBinsDestruction</artifactId>
     <packaging>pom</packaging>
     <modules>
-        <module>../l20_InitializationAndBinsDestruction</module>
+        <module>../l21_AwareInterfaces</module>
     </modules>
 
 
