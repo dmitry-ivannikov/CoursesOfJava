@@ -171,4 +171,12 @@ _____________________________________________________________________
 20 - afterconstuct preDestroy
 implements Car, InitializingBean, DisposableBean, BeanPostProcessor
 
+_____________________________________________________________________
+21 - Aware interfaces
+implements Car, ApplicationContextAware
+
+   public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
+        context = applicationContext;
+    }
+
 
