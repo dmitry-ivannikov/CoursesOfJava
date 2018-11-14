@@ -7,7 +7,7 @@ default-init-method="init"
 default-destroy-method="destroy">
 
 <import resource="config2.xml"/>
-    <bean class="com.Toyota"
+    <bean class="com.dmitry.impl.Toyota"
 
     >
         <lookup-method bean="AA" name="getRadio"/>

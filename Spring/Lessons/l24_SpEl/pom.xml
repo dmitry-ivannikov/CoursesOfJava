@@ -3,18 +3,14 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
-        <artifactId>l20_InitializationAndBinsDestruction</artifactId>
+        <artifactId>l23_DependencyResolve</artifactId>
         <groupId>l11_CollectionAutowiring</groupId>
         <version>1.0-SNAPSHOT</version>
-        <relativePath>../l20_InitializationAndBinsDestruction/pom.xml</relativePath>
+        <relativePath>../l23_DependencyResolve/pom.xml</relativePath>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>l21_AwareInterfaces</artifactId>
-    <packaging>pom</packaging>
-    <modules>
-        <module>../l22_Annotations</module>
-    </modules>
+    <artifactId>l24_SpEl</artifactId>
 
 
 </project>

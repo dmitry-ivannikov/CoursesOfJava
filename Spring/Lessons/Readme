@@ -179,4 +179,22 @@ implements Car, ApplicationContextAware
         context = applicationContext;
     }
 
+_____________________________________________________________________
+22 - Annotations
+//@Component
+//@Resource
+//@Service
+//@Repository
+//@Controller
 
+@Autowired
+@Ressouse
+
+отличие только в названии
+
+from EE
+@Named
+@Inject
+
+_____________________________________________________________________
+23 - Dependency resolve
