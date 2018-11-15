@@ -3,18 +3,24 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
-        <artifactId>l23_DependencyResolve</artifactId>
+        <artifactId>l24_SpEl</artifactId>
         <groupId>l11_CollectionAutowiring</groupId>
         <version>1.0-SNAPSHOT</version>
-        <relativePath>../l23_DependencyResolve/pom.xml</relativePath>
+        <relativePath>../l24_SpEl/pom.xml</relativePath>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>l24_SpEl</artifactId>
-    <packaging>pom</packaging>
-    <modules>
-        <module>../l25_1AOP</module>
-    </modules>
+    <artifactId>l25_1AOP</artifactId>
+
+    <dependencies>
+        <!-- https://mvnrepository.com/artifact/org.aspectj/aspectjrt -->
+        <dependency>
+            <groupId>org.aspectj</groupId>
+            <artifactId>aspectjweaver</artifactId>
+            <version>1.8.12</version>
+        </dependency>
+
+    </dependencies>
 
 
 </project>

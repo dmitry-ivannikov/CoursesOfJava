@@ -7,8 +7,10 @@ default-init-method="init"
 default-destroy-method="destroy">
 
 <import resource="config2.xml"/>
-    <bean class="com.dmitry.impl.Toyota">
-        <lookup-method bean="AA" name="getRadio"/>
+    <bean class="com.Toyota">
+        <!--<lookup-method bean="AA" name="getRadio"/>-->
+        <property name="radio" ref="AA"/>
+        <!--<property name="name" value="#{'hello'}"/>-->
     </bean>
     <context:property-placeholder location="my.properties"/>
 
