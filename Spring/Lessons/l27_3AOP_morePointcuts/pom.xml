@@ -3,18 +3,14 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
-        <artifactId>l25_1AOP</artifactId>
+        <artifactId>l26_ 2AOP_pointcut</artifactId>
         <groupId>l11_CollectionAutowiring</groupId>
         <version>1.0-SNAPSHOT</version>
-        <relativePath>../l25_1AOP/pom.xml</relativePath>
+        <relativePath>../l26_ 2AOP_pointcut/pom.xml</relativePath>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>l26_ 2AOP_pointcut</artifactId>
-    <packaging>pom</packaging>
-    <modules>
-        <module>../l27_3AOP_morePointcuts</module>
-    </modules>
+    <artifactId>l27_3AOP_morePointcuts</artifactId>
 
 
 </project>

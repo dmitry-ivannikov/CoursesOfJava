@@ -18,12 +18,14 @@
 
        <context:component-scan base-package="com.dmitry" />
         <aop:aspectj-autoproxy />
-        <bean id="transactionAspect" class="com.MyTransactionAspect"/>
+        <bean id="transactionAspect" class="com.dmitry.aop2.MyTransactionAspect"/>
 
 
     <aop:config>
         <aop:aspect ref="myTransactionAspect">
-            <aop:before pointcut="execution(* com.MyUserRepo.getInfo())" method="beginTransaction"/>
+            <aop:pointcut id="myPointCut" expression="execution(* com.dmitry.aop2.MyUserRepo.getInfo())"/>
+            <!--<aop:before pointcut="execution(* com.MyUserRepo.getInfo())" method="beginTransaction"/>-->
+            <aop:before pointcut-ref="myPointCut" method="beginTransaction"/>
         </aop:aspect>
     </aop:config>
     <!--<context:property-placeholder location="my.properties"/>-->

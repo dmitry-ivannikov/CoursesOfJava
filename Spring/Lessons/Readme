@@ -199,10 +199,55 @@ from EE
 _____________________________________________________________________
 23 - Dependency resolve
 
-_____________________________________________________________________
-24 - spel
+    @Bean
+    public Car getCar1(){
+        Toyota car = new Toyota();
+        car.setRadio(bestFm());
+        return car;
+    }
 
+    @Bean
+    public Car getCar2(){
+        Ferrary car = new Ferrary();
+        car.setRadio(bestFm());
+        return car;
+    }
+
+    @Bean
+    @Scope(ConfigurableBeanFactory.SCOPE_PROTOTYPE)
+    public Radio bestFm(){
+        return new BestFm();
+    }
+
+    не будет создавать иже существующий, а просто вызовет его
+_____________________________________________________________________
+24 - spel {#""}
+@Value("#{radio.name eq 'AA'}") взаимодействие с полями бинов
 _____________________________________________________________________
 25 - AOP
 
 aspect, join point, advice, poincut
+
+_____________________________________________________________________
+26 - pointcut
+
+    @Pointcut("execution(* com.dmitry.aop2.MyUserRepo.getInfo())")
+    public void myPointCut(){}
+@Before("myPointCut()")
+public void beginTransaction(){
+    System.out.println("begin Transaction");
+}
+
+_____________________________________________________________________
+27 - more pointcuts
+
+execution - выполнение метода
+within - указывает используемый тип
+this - @Pointcut("this(com.dmitry.aop2.MyRepo)") все экземпляры  myRepo
+target - @Pointcut("target(com.dmitry.aop2.MyRepo)") Отределённого типа
+@target -  @Pointcut("@target(org.springframework.stereotype.Component)") выполнить матоды бина, бин которого пмечен как Component
+@annotation @Pointcut("@annotation(org.springframework.context.annotation.Primary)") - выполнить только те методы, которые помечены как Primary
+//@Pointcut("execution(* com.dmitry.aop2.*.*fo())") вызовет любой метод, который заканчивается на fo
+@Pointcut("execution(* com.dmitry.aop2.*.*fo(..))") любое количество передаваемых аргументов
+@Pointcut("bean(myUserRepo)") выполнит все методы этого бина
+
