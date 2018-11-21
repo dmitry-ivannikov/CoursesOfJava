@@ -3,18 +3,14 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
-        <artifactId>l29_5AOP_Parametrs</artifactId>
+        <artifactId>l30_6AOP_Priority</artifactId>
         <groupId>l11_CollectionAutowiring</groupId>
         <version>1.0-SNAPSHOT</version>
-        <relativePath>../l29_5AOP_Parametrs/pom.xml</relativePath>
+        <relativePath>../l30_6AOP_Priority/pom.xml</relativePath>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>l30_6AOP_Priority</artifactId>
-    <packaging>pom</packaging>
-    <modules>
-        <module>../l31_7AOP_Proxy</module>
-    </modules>
+    <artifactId>l31_7AOP_Proxy</artifactId>
 
 
 </project>

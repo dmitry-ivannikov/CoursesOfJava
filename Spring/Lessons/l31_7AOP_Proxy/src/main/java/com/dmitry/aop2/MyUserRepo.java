@@ -1,0 +1,17 @@
+package com.dmitry.aop2;
+
+import org.springframework.aop.framework.AopContext;
+import org.springframework.stereotype.Component;
+
+@Component("myUserRepo")
+public class MyUserRepo implements MyRepo {
+    public void getInfo() {
+        System.out.println("name Kot age 5");
+    }
+
+    public void withParams(String name) {
+
+        ((MyRepo) AopContext.currentProxy()).getInfo();
+        System.out.println(name);
+    }
+}

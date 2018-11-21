@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+        xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/aop
+
+
+       http://www.springframework.org/aop/spring-aop.xsd
+    http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context.xsd
+">
+       <!--http://www.springframework.org/schema/aop-->
+       <!--http://www.springframework.org/schema/aop/spring-aop.xsd">-->
+
+       <context:component-scan base-package="com.dmitry" />
+        <!--<aop:aspectj-autoproxy />-->
+        <bean id="transactionAspect" class="com.dmitry.aop2.MyTransactionAspect"/>
+
+
+    <aop:config>
+        <aop:aspect ref="transactionAspect">
+            <aop:pointcut id="myPointCut" expression="execution(* com.dmitry.aop2.MyUserRepo.withParams(String)) and args(name)"/>
+            <aop:before pointcut-ref="myPointCut" method="beforeMethodWithParams"/>
+            <!--<aop:around pointcut-ref="myPointCut" method="aroundTransaction"/>-->
+            <!--<aop:before pointcut="execution(* com.MyUserRepo.getInfo())" method="beginTransaction"/>-->
+            <!--<aop:before pointcut-ref="myPointCut" method="beginTransaction"/>-->
+        </aop:aspect>
+    </aop:config>
+    <!--<context:property-placeholder location="my.properties"/>-->
+
+</beans>
