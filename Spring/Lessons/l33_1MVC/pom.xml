@@ -9,7 +9,10 @@
         <relativePath>../l31_7AOP_Proxy/pom.xml</relativePath>
     </parent>
     <modelVersion>4.0.0</modelVersion>
-    <packaging>war</packaging>
+    <packaging>pom</packaging>
+    <modules>
+        <module>../l34_2MVC</module>
+    </modules>
 
     <artifactId>l33_1MVC</artifactId>
 

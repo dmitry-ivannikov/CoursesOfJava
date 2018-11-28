@@ -1,0 +1,6 @@
+com/dmitry/controllers/MyController.class
+com/dmitry/MyAnnotatedServlet.class
+com/dmitry/SecondDespInitialiser.class
+com/dmitry/MyConfig.class
+com/dmitry/MyWebServlet.class
+com/dmitry/MyDispatcherInitialiser.class
